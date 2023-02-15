@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, {useState} from "react";
 function App() {
+  const [number1, setNumber1] = useState(0);
+  const [number2, setNumber2] = useState(0);
+  const [sum, setSum] = useState(0);
+  const [multiphy, setMultiphy] = useState(0);
+  const cal = () => {
+    console.log(number1);
+    setSum(number1 + number2);
+    setMultiphy(number1 * number2);
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <input type='number' value = {number1} onChange = {e => setNumber1(parseInt(e.target.value))} />
+      <input type='number' value = {number2} onChange = {e => setNumber2(parseInt(e.target.value))} />
+      {/* <button onClick ={() => {setSum(number1 + number2) } }> Tong</button>
+      <button onClick ={() => {setMultiphy(number1 * number2) } }> Tich</button> */}
+      <button onClick ={cal}> Tính</button>
+
+      <p>Tổng của 2 số là {sum}</p>
+      <p>Tích của 2 số là {multiphy}</p>
     </div>
   );
 }
-
 export default App;
